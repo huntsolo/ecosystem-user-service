@@ -12,7 +12,7 @@ node {
 		stage('Clone repository') {
 	    	git branch: branch,
 	        	credentialsId: 'GitHub Credentials',
-	        	url: 'https://github.com/careydevelopment/ecosystem-user-service.git'
+	        	url: 'https://github.com/huntsolo/ecosystem-user-service'
 	    } 
 	
 	    stage('Copy properties files') {
