@@ -1,6 +1,6 @@
 node {
 	def app
-	def image = 'careydevelopment/ecosystem-user-service'
+	def image = 'huntsolo/ecosystem-user-service'
 	def branch = scm.branches[0].name.substring(2)
 	
 	try {
@@ -34,12 +34,12 @@ node {
 			app = docker.build image
 	    }
 	    
-	    //stage('Push') {
-	    //	docker.withRegistry('https://registry.hub.docker.com', 'docker-hub') {            
-		//		app.push("${env.BUILD_NUMBER}")
-		//		app.push("latest")
-	    //    }    
-	    //}
+	    stage('Push') {
+	    	docker.withRegistry('https://registry.hub.docker.com', 'dockerhub') {            
+				app.push("${env.BUILD_NUMBER}")
+				app.push("latest")
+	        }    
+	    }
 	    
 	    stage('Docker Build') {
             sh 'docker build --tag ecosystem-user-service:latest .'
