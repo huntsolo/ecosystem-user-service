@@ -15,12 +15,12 @@ node {
 	        	url: 'https://github.com/huntsolo/ecosystem-user-service'
 	    } 
 	
-	    stage('Copy properties files') {
-	       sh 'cp ../config/ecosystem-user-service/application.properties ./src/main/resources'
+	//    stage('Copy properties files') {
+	//       sh 'cp ../config/ecosystem-user-service/application.properties ./src/main/resources'
 	       
 	       //for recaptcha
-	       sh 'cp ../config/ecosystem-user-service/carey-development-service-config.json .'   
-        } 
+	//       sh 'cp ../config/ecosystem-user-service/carey-development-service-config.json .'   
+     //   } 
 	
 		stage('Build JAR') {
 	    	docker.image('maven:3.6.3-jdk-11').inside('-v /root/.m2:/root/.m2') {
