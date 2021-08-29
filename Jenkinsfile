@@ -1,7 +1,7 @@
 node {
 	def app
 	def image = 'huntsolo/ecosystem-user-service'
-	def branch = scm.branches[0].name.substring(2)
+	def branch = 'master'
 	
 	try {
 	    stage('Cleanup') {
@@ -11,7 +11,7 @@ node {
         
 		stage('Clone repository') {
 	    	git branch: branch,
-	        	credentialsId: 'GitHub Credentials',
+	        	//credentialsId: 'GitHub Credentials',
 	        	url: 'https://github.com/huntsolo/ecosystem-user-service'
 	    } 
 	
